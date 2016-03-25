@@ -1,0 +1,454 @@
+<html>
+<head>
+</head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
+<link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="stylesheet.css" media="all"/>
+<title>Berth Scour Protection</title></head>
+
+<body> 
+
+<div class='wrap'>
+	<div class='content'>
+
+<div class="nav">
+      <div class="container">
+         <div class="languages">
+          <ul>
+          <li id="Eng"><a href="/eng/eng" ><img src="/icons/British_Flag_30x20.jpg"/></a></li>
+          <li id="Rus"><a href="/index.html"><img src="/icons/Russian_Flag_30x20.jpg"/></a></li>
+        </ul>
+        </div>
+        <div class="links">
+        <ul>
+          <li><a href="http://www.huesker.co.uk/products/geosynthetics/incomat.html" target="_blank">Concrete Mattress</a></li>
+          <li><a href="http://www.proserveltd.co.uk/pdfs/B142c-proserve-berth-pack.pdf" target="_blank">Berth Protection</a></li>
+          <li><a href="http://www.proserveltd.co.uk/pdfs/berth-scour-protection-modern-vessels-pianc-usa2014.pdf" target="_blank">Calculation Method</a></li>
+          </ul>
+        </div>
+       </div>
+    </div> 
+
+<div class="jumbotron">
+    <div class="container">
+		<h1>Berth Scour Protection For Modern Vessels</h1>
+		<p>By Martin G. Hawkswood, Frans H. Lafeber and George M. Hawkswood</p>
+	</div>
+</div> 
+
+<div class='Intro'>
+	<h2>Dead Weight Design of the Mattress Thickness</h2>
+	<p>This calculation method is based on the article <a href="http://www.proserveltd.co.uk/pdfs/berth-scour-protection-modern-vessels-pianc-usa2014.pdf" target="_blank">"Berth Scour Protection For Modern Vessels"</a> (PIANC World Congress San Francisco USA 2014) written by Martin G. Hawkswood, Frans H. Lafeber and George M. Hawkswood and allows to determine a minimum thickness of relatively impermeable protection technologies, such as constant thickness and filter point concrete mattresses and tremie concrete technology.
+   </p>
+</div>
+
+<div class='form'>
+<div class='row'>
+	<div class="col-md-4">
+	<div class='input_block' id='div_propeller_type'>
+  		<h4 class='input_head' id='head_propeller_type'>Propeller type</h4>
+  		<select class='select-control' id='selector_propeller_type' >
+ 			<option value="1"> Open propellers</option>
+ 			<option value="2"> Ducted propellers (kort nozzle)</option>
+ 			<option value='3'> Transverse thrusters</option>
+		</select>
+	</div>
+	</div>
+	<div class="col-md-4">
+	<form action="result.php" method="post" id="Form1" class="Form">
+  	 <div class='input_block' id='div_mattress_type'>
+  			<h4 class='input_head' id='head_mattress_type'>Mattress type</h4>
+  			<select class='select-control' id='selector_mattress_type' name='selector_mattress_type'>
+ 				<option value="constant_thickness"> Constant Thickness</option>
+ 				<option value="filter_point"> Filter Point</option>
+ 				<option value="tremie_concrete"> Tremie Concrete</option>
+			</select>
+		</div>
+		</div>
+		<div class="col-md-4">
+		<div class='input_block' id='div_surface_undulation'>
+  			<h4 class='input_head' id='head_surface_undulation'>Surface Undulation Ratio <span>Allows to take into account the effect of local surface undulation. It is measured by undulation height/undulation length and should be described by mattress manufacturer.</span> </h4>
+  			<select name="selector_surface_undulation[]" id="selector_surface_undulation" multiple="multiple" size="2" class='select-control'>
+ 			</select>
+		</div>
+		</div>
+	</form>
+</div>
+
+<div class='row'>
+<form method="post">
+	<div class="col-md-5">
+	<div class="input_block" id='div_geometrical_characteristics'> 
+		<h4 class='input_head' id='head_geometrical_characteristics'>Geometrical Characteristics</h4>
+			<div class="input_values" id='div_propeller_diameter'>			
+				<label class='label'>Propeller diameter (m), Dp:</label>
+    			<input type='number' class='form-control' id='input_propeller_diameter' size='2' min='0' step='0.001' /><br><br>
+  			</div>
+  			<div class="input_values" id='div_propeller_clearance'>			
+				<label class='label'>Propeller tip clearance to bed (m), C:</label>
+    			<input type='number' class='form-control' id='input_propeller_clearance' size='2' min='0' step='0.001' placeholder="Ratio of C to Dp/2 must be at least 0.25 or more" /><br><br>
+  			</div>
+  	</div>
+  	</div>
+  	<div class="col-md-5">
+  	<div class="input_block" id='div_power_properties'> 
+		<h4 class='input_head' id='head_power_properties'>Power Properties</h4>
+			<div class="input_values" id='div_engine_power'>			
+				<label class='label'>Engine power (kW), P:</label>
+    			<input type='number' class='form-control' id='input_engine_power' size='2' min='0' step='0.001'/><br><br>
+  			</div>
+  			<div class="input_values" id='div_engine_power_at_berth'>			
+				<label class='label'>Ration of engine power at berth, f:</label>
+    			<input type='number' class='form-control' id='input_engine_power_at_berth' size='2' min='0' step='0.001'/><br><br>
+  			</div>
+  	</div>
+  	</div>
+  </div>
+  	<div class="row">
+  	<div class="col-md-5">
+  	<div class="input_block" id='div_phisical_properties'> 
+		<h4 class='input_head' id='head_phisical_properties'>Phisical Properties</h4>
+			<div class="input_values" id='div_relative_density'>			
+				<label class='label'>Relative density of water (t/m<sup><small>3</small></sup>), &rho;:</label>
+    			<input type='number' class='form-control' id='input_relative_density' size='3' min='0' step='0.001' placeholder='Water density seawater 1.03'/><br><br>
+  			</div>
+  			<div class="input_values" id='div_buoyant_relative_density'>			
+				<label class='label'>Buoyant relative density of micro concrete, &Delta;:</label>
+    			<input type='number' class='form-control' id='input_buoyant_relative_density' size='3' min='0' step='0.001' placeholder='It is typically taken as 1.3'/><br><br>
+  			</div>
+  			<div class="input_values" id='div_gravitational_acceleration'>			
+				<label class='label'>Gravitational acceleration (m/s<sup><small>2</small></sup>), g:</label>
+    			<input type='number' class='form-control' id='input_gravitational_acceleration' size='3' min='0' step='0.001' placeholder='It is typically taken as 9.81'/><br><br>
+  			</div>
+  	</div>
+  	</div>
+  
+  <div class="col-md-5">
+  <div class="input_block" id='div_safety_factors'> 
+		<h4 class='input_head' id='head_safety_factors'>Safety Factors</h4>
+			<div class="input_values" id='div_chief_safety_factor'>			
+				<label class='label'>Chief safety factor, S.F.:</label>
+    			<input type='number' class='form-control' id='input_chief_safety_factor' size='3' min='0' step='0.001'/><br><br>
+  			</div>
+  			<div class="input_values" id='div_buoyant_suction_factor'>			
+				<label class='label'>Suction factor, A:</label>
+    			<input type='number' class='form-control' id='input_suction_factor' size='3' min='0' step='0.001' placeholder='It is typically taken as 0.8'/><br><br>
+  			</div>
+  			<div class="input_values" id='div_dead_weight_load_factor'>			
+				<label class='label'>Dead weight load factor, &gamma;:</label>
+    			<input type='number' class='form-control' id='input_dead_weight_load_factor' size='3' min='0' step='0.001' /><br><br>
+  			</div>
+  	</div>
+  	</div>
+  	</div>
+  </form>
+  </div>
+
+
+<button  type='button' id='btn' class="btn btn-default" onclick='outputname()'><b>Calculate!</b></button>
+
+<p id='demo'></p>
+
+<p id='attention'></p>
+<p id='demand'></p>
+
+<div class="footage">
+  <p id="copyright">The programm is written by Victor Poberezhniy</p><br> 
+  <p id="e-mail">e-mail: poberezhniy@huesker.ru</p>
+</div>
+
+
+<script>
+
+function removeAllOptions(sel, removeGrp) {
+    var len, groups, par;
+    if (removeGrp) {
+        groups = sel.getElementsByTagName('optgroup');
+        len = groups.length;
+        for (var i=len; i; i--) {
+            sel.removeChild( groups[i-1] );
+        }
+    }
+    
+    len = sel.options.length;
+    for (var i=len; i; i--) {
+        par = sel.options[i-1].parentNode;
+        par.removeChild( sel.options[i-1] );
+    }
+}
+
+function appendDataToSelect(sel, obj) {
+    var f = document.createDocumentFragment();
+    var labels = [], group, opts;
+    
+    function addOptions(obj) {
+        var f = document.createDocumentFragment();
+        var o;
+        
+        for (var i=0, len=obj.text.length; i<len; i++) {
+            o = document.createElement('option');
+            o.appendChild( document.createTextNode( obj.text[i] ) );
+            
+            if ( obj.value ) {
+                o.value = obj.value[i];
+            }
+            
+            f.appendChild(o);
+        }
+        return f;
+    }
+    
+    if ( obj.text ) {
+        opts = addOptions(obj);
+        f.appendChild(opts);
+    } else {
+        for ( var prop in obj ) {
+            if ( obj.hasOwnProperty(prop) ) {
+                labels.push(prop);
+            }
+        }
+        
+        for (var i=0, len=labels.length; i<len; i++) {
+            group = document.createElement('optgroup');
+            group.label = labels[i];
+            f.appendChild(group);
+            opts = addOptions(obj[ labels[i] ] );
+            group.appendChild(opts);
+        }
+    }
+    sel.appendChild(f);
+}
+
+// anonymous function assigned to onchange event of controlling select list
+document.forms['Form1'].elements['selector_mattress_type'].onchange = function(e) {
+    // name of associated select list
+    var relName = 'selector_surface_undulation[]';
+    
+    // reference to associated select list 
+    var relList = this.form.elements[ relName ];
+    
+    // get data from object literal based on selection in controlling select list (this.value)
+    var obj = Select_List_Data[ relName ][ this.value ];
+    
+    // remove current option elements
+    removeAllOptions(relList, true);
+    
+    // call function to add optgroup/option elements
+    // pass reference to associated select list and data for new options
+    appendDataToSelect(relList, obj);
+};
+
+// object literal holds data for optgroup/option elements
+var Select_List_Data = {
+    
+    // name of associated select list
+    'selector_surface_undulation[]': {
+        
+        // names match option values in controlling select list
+        constant_thickness: {
+        	// optgroup label
+                text: ['0.16', '0.21'],
+                value: ['1.15', '1.20']
+            },
+        filter_point: {
+
+            // example without optgroups
+            text: ['0.33'],
+            value: ['1.30']
+        },
+        tremie_concrete: {
+            // example without values
+                text: ['0.21', '0.33'],
+                value: ['1.20','1.30']
+            }
+            
+        }
+    }
+    
+
+
+// populate associated select list when page loads
+window.onload = function() {
+    var form = document.forms['Form1'];
+    
+    // reference to controlling select list
+    var sel = form.elements['selector_mattress_type'];
+    sel.selectedIndex = 0;
+    
+    // name of associated select list
+    var relName = 'selector_surface_undulation[]';
+    // reference to associated select list
+    var rel = form.elements[ relName ];
+    
+    // get data for associated select list passing its name
+    // and value of selected in controlling select list
+    var data = Select_List_Data[ relName ][ sel.value ];
+    
+    // add options to associated select list
+    appendDataToSelect(rel, data);
+};
+	//конец зависимого селекта
+
+	function outputname() {
+
+	var dp,c,p,f,rho,delta,g,sf,A,gamma,s1,s,up,u0,a,iq1,iq,t,w,sp1,sp,dmin,dmin1,answ1,answ,w1,x,y1,y2,z1,z2,y;
+
+	dp=document.getElementById('input_propeller_diameter').value;
+	c=document.getElementById('input_propeller_clearance').value;
+	p=document.getElementById('input_engine_power').value;
+	f=document.getElementById('input_engine_power_at_berth').value;
+	rho=document.getElementById('input_relative_density').value;
+	delta=document.getElementById('input_buoyant_relative_density').value;
+	g=document.getElementById('input_gravitational_acceleration').value;
+	sf=document.getElementById('input_chief_safety_factor').value;
+	A=document.getElementById('input_suction_factor').value;
+	gamma=document.getElementById('input_dead_weight_load_factor').value;
+	
+	s1=document.getElementById('selector_propeller_type').value;
+	switch (s1) {
+		case '1':
+		s=1;
+		x=0.5;
+		a=1.48;
+		break;
+		case '2':
+		s=0.5;
+		x=1;
+		a=1.17;
+		break;
+		case '3':
+		s=1/3;
+		x=1;
+		a=1.1;
+		break;
+	}
+
+	up=x*a*Math.pow(((f*p)/(rho*Math.pow(dp,2))), 1/3);
+	console.log(up);
+
+	t=2*s*rho*Math.pow(up,2);
+	console.log(t);
+	
+	w1=c/(dp/2);
+
+	if (w1 < 0.25  && w1 !== 0) {
+    alert ('Ratio of C to Dp/2 is too low. Ratio of C to Dp/2 must be at least 0.25 or more');
+		w = 0;
+	}
+    else if (w1 == 0){
+document.getElementById('demo').innerHTML="Something is wrong! Check all the forms for slots or inappropriate inputs.";
+w=0;
+  }
+
+    else if (w1 > 1) {
+    	w = 1;
+    }
+    else {
+    	w=w1;
+    }
+
+	if (w<0.25) {
+	sp=0*t;
+	}
+	else if (w >=0.25 && w <0.5){
+		y1=0.083333;
+		y2=0.035134;
+		z1=0.25;
+		z2=0.5;
+		y=y1+(y2-y1)*((w-z1)/(z2-z1));
+		sp=y*t;
+	}
+	else if (w >=0.5 && w <0.75){
+		y1=0.035134;
+		y2=0.017963;
+		z1=0.5;
+		z2=0.75;
+		y=y1+(y2-y1)*((w-z1)/(z2-z1));
+		sp=y*t;
+	}
+	else if (w >=0.75 && w <1){
+		y1=0.017963;
+		y2=0.009971;
+		z1=0.75;
+		z2=1;
+		y=y1+(y2-y1)*((w-z1)/(z2-z1));
+		sp=y*t;
+	}
+	else {
+	sp=0.009971*t;
+	}
+
+
+	console.log(w);
+	console.log(sp);
+
+	iq=document.getElementById('selector_surface_undulation').value;
+	console.log(iq);
+
+  if (iq.length == 0 && document.getElementById('selector_mattress_type').value == 'filter_point') {
+    iq=1.30;
+  }
+  console.log(iq);
+
+
+
+	dmin1=(sf*A*sp*iq)/(gamma*delta*g);
+	console.log(dmin1);	
+
+
+
+
+
+	if (dmin1 <=0) {
+		document.getElementById('demo').innerHTML="Something is wrong! Check all the forms for slots or inappropriate inputs.";
+	}
+	else if (dmin1 == Number.POSITIVE_INFINITY || dmin1 == Number.NEGATIVE_INFINITY){
+		document.getElementById('demo').innerHTML="Something is wrong! Check all the forms for slots or inappropriate inputs.";
+	}
+
+  else if (isNaN(dmin1))    {
+    document.getElementById('demo').innerHTML="Something is wrong! Check all the forms for slots or inappropriate inputs.";
+  }
+
+  else {
+    dmin=dmin1;
+    document.getElementById('demo').innerHTML="Minimun value of protection thickness is equal to " + dmin.toFixed( 3 ) + " m.";
+  }
+
+	console.log(dmin);
+
+
+
+  if (dmin1 <=0.2 && undefined !== dmin){
+        document.getElementById('attention').innerHTML="Attention!";
+        document.getElementById('demand').innerHTML="A 200 mm minimum thickness is recommended to berth beds where controlled maintenance dredging by dredging vessels is likely. In addition, past experience has shown that concrete mattresses with a thickness of at least 200 mm are able to withstand the impact of dropped anchors (in accordance with German recommendations for the use of lining systems on beds and banks of waterways).";
+  }
+  else {
+    document.getElementById('attention').innerHTML=" ";
+    document.getElementById('demand').innerHTML=" ";
+  }
+
+	if (iq.length == 0 && dmin1==0 && up !==0 && w !==0) {
+    document.getElementById('demo').innerHTML="Please set the value of the Surface Undulation Ration";
+    document.getElementById('attention').innerHTML=" ";
+    document.getElementById('demand').innerHTML=" ";
+    document.getElementById("selector_surface_undulation").focus();
+  }
+
+  if (dmin >= 0.6 && document.getElementById('selector_mattress_type').value !== 'tremie_concrete' && undefined !== dmin) {
+    dmin=dmin1;
+    document.getElementById('demo').innerHTML="Minimun value of protection thickness is equal to " + dmin.toFixed( 3 ) + " m.";
+    document.getElementById('attention').innerHTML="Attention!";
+    document.getElementById('demand').innerHTML="It should be clarified if there is a possibility to produce protection technology of such thickness";
+  }
+
+}
+
+
+
+</script>
+
+	
+</body>
+</html>

@@ -1,0 +1,242 @@
+html, body {height:100%;}
+.wrap {
+/*центрируем*/
+  position:relative;
+  width:1000px; /*могут быть и пиксели*/
+  margin: 0px auto ;
+/*вытягиваем в высоту*/  
+  height:auto !important;
+  height:100%;
+  min-height:100%;
+}
+.contentdiv {padding:10px;}
+
+.nav {
+    height: 80px;
+   background-color: #bcc1c7; 
+}
+
+
+.nav li {
+
+  display: inline;
+  text-align: center;
+
+}
+
+.nav a {
+    margin-left: 10px;
+    float: left;
+    color: 303030;
+    position: relative; 
+    top: 25px;
+    font-size: 11px;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-transform: uppercase;
+}
+
+.languages{
+  float: right;
+  padding-left: 50px;
+  position: relative;
+  right: 180px;
+  top: -25px;
+    
+}
+
+
+.jumbotron {
+    margin-top: 20px;
+    text-align: left;
+	  height: 550px;
+    background-image: url('/pics/container-ship-in-hong-kong-1495556-1279x856_1001x671.jpg');
+  }
+
+.jumbotron h1{
+    font-size: 37px;
+    position: relative; 
+    top: -57px;
+    color: 303030;
+    font-family:'Cabin', sans-serif;
+    }
+
+.jumbotron p{
+    font-size: 15px;
+    position: relative;
+    top: -53px;
+    color: 1A1919;
+    font-family:'Cabin', sans-serif;
+    }
+
+.jumbotron .container {
+ position: relative; 
+ top: 20px;
+ left: 50px;
+}    
+
+.intro {
+    text-align: left;
+    height:225px;
+    background-color: 93969A;
+    border-bottom: 1px solid #dbdbdb; 
+}
+
+.intro h2 {
+    position: relative;
+    top: 30px;
+    margin-bottom: 30px;
+    margin-left: 60px;
+    color: #393c3d;
+    font-size: 24px;
+}
+
+.intro p {
+    text-align: justify;
+    margin-bottom: 60px;
+    margin-right: 60px;
+    margin-left: 60px;
+    position: relative;
+    top: 20px;
+    font-size: 15px;
+    margin-bottom: 13px;
+}
+
+.intro a {
+    color: 151515;
+}
+
+.form {
+    background-color: AFAEAE;
+    margin-top: -20px;
+}
+
+.form h2 {
+    font-family: 'Cabin', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.form p {
+    font-family: 'Cabin';
+}
+
+.input_head {
+    margin-top:50px;
+    margin-left:60px;
+    font-family: 'Cabin', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.form-control {
+margin-left:60px;
+margin-right: 40px;
+}
+
+.label {
+    margin-left:55px;
+    float: left;
+    width: 33%;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Cabin';
+}
+
+.select-control {
+    margin-top: 20px;
+    margin-left: 60px;
+    border-radius: 5px;
+    height: 35px;
+    text-align: center;
+  }
+
+
+#selector_mattress_type {
+    margin-top:40px;
+    margin-left: 50px;
+}
+
+#head_mattress_type {
+    position: relative;
+    top: 20px;
+    margin-left: 50px;
+}
+
+#selector_surface_undulation {
+    width: 170px;
+    text-align: center;
+    overflow: hidden;
+    margin-left: 30px;
+  }
+
+#head_surface_undulation{
+  margin-left: 30px;
+}
+
+
+#btn {
+      height: 40px;
+     margin:auto;
+     margin-top: 40px;
+  display:block;
+}
+
+#demo {
+    text-align: center;
+    font-weight: bold;
+    margin:auto;
+     margin-top: 40px;
+     margin-bottom: 40px;
+}
+
+#attention {
+    text-align: left;
+    font-weight: bold;
+  }
+
+#demand {
+    text-align: justify;
+  }
+
+.footage{
+  height: 80px;
+  background-color: 93969A; 
+}
+
+#copyright{
+  float: right;
+  position: relative;
+  top: 30px;
+  right: 120px;
+  }
+
+  #e-mail {
+  float: right;
+  position: relative;
+  top: 33px;
+  right: -87px;
+  }
+
+
+#head_surface_undulation:hover{z-index:25; background-color:AFAEAE}
+
+#head_surface_undulation span{display: none}
+
+#head_surface_undulation:hover span{ /*the span will display just on :hover state*/
+    font-weight: normal;
+    font-size: 13px;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    display:block;
+    position:right;
+    top:15px; left:5em; width:212px;
+    border:1px solid #080808;
+    border-radius: 5px;
+    background-color:ECECEC; color:151515;
+    text-align: left}
+
